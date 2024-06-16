@@ -74,6 +74,21 @@ public class linkedList {
         }
     }
 
+    public Node removeFirst(){
+        if(length == 0) return null;
+        Node temp = head;
+        head = head.next;
+        // we need to unplug the temp from our list 
+        temp.next = null;
+
+        length--;
+        if(length == 0){
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
+
     public Node removeLast(){
         if(length == 0) return null;
         Node pre = head;
