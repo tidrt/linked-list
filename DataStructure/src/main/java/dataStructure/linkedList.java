@@ -34,6 +34,19 @@ public class linkedList {
         System.out.println("Legnth: " + this.length);
     }
 
+    public Node get(int index){
+        if(index == 0 || index >= length) {
+            return null;
+        }
+
+        Node temp = head;
+        for(int i = 0; i < index; i++){
+            temp = temp.next;
+            i++;
+        }
+        return temp;
+    }
+
     // method to empty the list
     public void makeEmpty(){
         head = null;
@@ -75,10 +88,12 @@ public class linkedList {
     }
 
     public Node removeFirst(){
-        if(length == 0) return null;
+        if(length == 0) {
+            return null;
+        }
         Node temp = head;
         head = head.next;
-        // we need to unplug the temp from our list 
+        // we need to unplug the temp from our list
         temp.next = null;
 
         length--;
@@ -90,7 +105,9 @@ public class linkedList {
     }
 
     public Node removeLast(){
-        if(length == 0) return null;
+        if(length == 0) {
+            return null;
+        }
         Node pre = head;
         // we need to store the value of the last node before remove
         Node temp = null;
