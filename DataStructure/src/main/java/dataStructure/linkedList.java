@@ -63,6 +63,17 @@ public class linkedList {
         length++;
     }
 
+    public void preppend(String data){
+        Node newNode = new Node(data);
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+
     public Node removeLast(){
         if(length == 0) return null;
         Node pre = head;
