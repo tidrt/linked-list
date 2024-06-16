@@ -41,6 +41,16 @@ public class linkedList {
         length = 0;
     }
 
+    public void print(){
+        // we can't override the head or tail references
+        // that's why we create a temporary node
+        Node temp = this.head;
+        while(temp != null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
+
     class Node{
         String data;
         Node next;
