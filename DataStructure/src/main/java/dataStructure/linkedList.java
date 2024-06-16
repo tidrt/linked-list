@@ -51,6 +51,18 @@ public class linkedList {
         }
     }
 
+    public void append(String data){
+        Node newNode = new Node(data);
+        if (length == 0){
+            head = newNode;
+            tail = newNode;
+        } else {
+             tail.next = newNode;
+             tail = newNode;
+        }
+        length++;
+    }
+
     class Node{
         String data;
         Node next;
