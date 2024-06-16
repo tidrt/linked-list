@@ -31,11 +31,11 @@ public class linkedList {
     }
 
     public void getLength(){
-        System.out.println("Legnth: " + this.length);
+        System.out.println("Length: " + this.length);
     }
 
     public Node get(int index){
-        if(index == 0 || index >= length) {
+        if(index < 0 || index >= length) {
             return null;
         }
 
@@ -62,6 +62,27 @@ public class linkedList {
             System.out.println(temp.data);
             temp = temp.next;
         }
+    }
+
+    public boolean insert(int index, String data){
+        if(index < 0 || index > length){
+            return false;
+        }
+
+        if(index == 0) {
+            preppend(data);
+            return true;
+        } else if (index == length) {
+            append(data);
+            return true;
+        }
+
+        Node newNode = new Node(data);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
     }
 
     public void append(String data){
