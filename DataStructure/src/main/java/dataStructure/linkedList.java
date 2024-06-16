@@ -63,6 +63,27 @@ public class linkedList {
         length++;
     }
 
+    public Node removeLast(){
+        if(length == 0) return null;
+        Node pre = head;
+        // we need to store the value of the last node before remove
+        Node temp = null;
+
+        while(pre.next != tail) {
+            pre = pre.next;
+        }
+        temp = tail;
+        tail = pre;
+        tail.next = null;
+
+        length--;
+        if(length == 0){
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
+
     class Node{
         String data;
         Node next;
