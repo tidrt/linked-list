@@ -47,6 +47,16 @@ public class linkedList {
         return temp;
     }
 
+    public boolean set(int index, String data){
+        Node temp = get(index);
+        if(temp != null){
+            temp.data = data;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // method to empty the list
     public void makeEmpty(){
         head = null;
